@@ -23,8 +23,11 @@
             <div class="container-fluid">
                 <div class="navbar-header navbar-left">
                     <a class="navbar-brand" href="#">Math World</a>                    
-                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="index.jsp">Home</a>               
-                </div>               
+                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="#">Link</a>               
+                </div> 
+                <div class="navbar-header navbar-left">                                        
+                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="index.jsp">Logout</a>               
+                </div>
             </div>
         </nav>
         <div class="container-fluid">
