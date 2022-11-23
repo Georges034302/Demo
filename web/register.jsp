@@ -11,9 +11,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register</title>
         <link rel="stylesheet" href="css/layout.css"/>
+        <script type="text/javascript" src="js/index.js"></script>
     </head>
-    <body>
-        This is a line of comment
+    <body onload="startTime()">
        <div style="margin: auto;">
             <form method="POST" action="welcome.jsp">
                 <table class="table">
@@ -32,5 +32,6 @@
                 </table>
             </form>
         </div>
+        <div id="clock" class="footer"></div>
     </body>
 </html>

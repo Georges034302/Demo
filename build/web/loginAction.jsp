@@ -10,9 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="stylesheet" href="css/layout.css"/>
+         <script type="text/javascript" src="js/index.js"></script>
         <title>Login Action</title>
     </head>
-    <body>
+    <body onload="startTime()">
         <% 
             String email = request.getParameter("email");
             String password = request.getParameter("password");
@@ -24,4 +25,5 @@
             <tr><td>Password: </td><td> <%= password %></td></tr>
         </table>
     </body>
+    <div id="clock" class="footer"></div>
 </html>

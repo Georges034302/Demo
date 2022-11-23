@@ -10,9 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/layout.css"/>
+        <script type="text/javascript" src="js/index.js"></script>
         <title>Blog Page</title>
     </head>
-    <body>
+    <body onload="startTime()" >
         <form action="main.jsp" method="POST">
             <table class="table">
                 <caption>New Blog </caption>
@@ -26,5 +27,6 @@
                 </tr>
             </table>
         </form>
+        <div id="clock" class="footer"></div>
     </body>
 </html>

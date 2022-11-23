@@ -6,16 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <link rel="stylesheet" href="css/layout.css"/>
         <script>
             $('form input').on('change', function () {
                 $(this).closest('form').submit();
             });
-            $('#id').focus(function(){
- // do your code here
-});
         </script>
     </head>
-    <body>
+    <body onload="startTime()">
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class="navbar-header navbar-left">
@@ -30,7 +29,7 @@
                 </form>
             </div>
         </nav>
-        <br>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-2">
@@ -44,5 +43,6 @@
                 </div>
             </div>
         </div>
+       <div id="clock" class="footer"></div>          
     </body>
 </html>

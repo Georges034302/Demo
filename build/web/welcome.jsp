@@ -10,9 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="stylesheet" href="css/layout.css"/>
+         <script type="text/javascript" src="js/index.js"></script>
         <title>Welcome</title>
     </head>
-    <body>
+    <body onload="startTime()">
         <% 
             String name = request.getParameter("name");
             String email = request.getParameter("email");
@@ -27,5 +28,6 @@
             <tr><td>Password: </td><td> <%= password %></td></tr>
             <tr><td>D.O.B.: </td><td> <%= dob %></td></tr>
         </table>
+        <div id="clock" class="footer"></div>
     </body>
 </html>

@@ -10,10 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/layout.css"/>
-        
+        <script type="text/javascript" src="js/index.js"></script>
         <title>Login</title>
     </head>
-    <body>       
+    <body onload="startTime()">       
         <div style="margin: auto;">
             <form method="POST" action="loginAction.jsp">
                 <table class="table">
@@ -30,5 +30,6 @@
                 </table>
             </form>
         </div>
+        <div id="clock" class="footer"></div>
     </body>
 </html>
