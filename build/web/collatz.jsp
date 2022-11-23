@@ -9,11 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Collatz Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
         <% int n = Integer.parseInt(request.getParameter("N")); %>
-        
+
         <table class="table table-bordered table-striped">
             <thead class="table-dark"><th>I</th><th>Collatz(i)</th></thead>
                 <% for (int i = 1; i <= n; i++) {%>
