@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : Nov 22, 2022, 2:46:16 PM
+    Document   : register.jsp
+    Created on : Nov 23, 2022, 11:28:30 AM
     Author     : George
 --%>
 
@@ -9,22 +9,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Register</title>
         <link rel="stylesheet" href="css/layout.css"/>
-        
-        <title>Login</title>
     </head>
-    <body>       
-        <div style="margin: auto;">
-            <form method="POST" action="loginAction.jsp">
+    <body>
+        This is a line of comment
+       <div style="margin: auto;">
+            <form method="POST" action="welcome.jsp">
                 <table class="table">
-                    <caption>Sign In</caption>
+                    <caption>Sign Up</caption>
+                    <tr><td>Name: </td><td><input type="text" name="name" placeholder="Enter your name" /></td></tr>
                     <tr><td>Email: </td><td><input type="text" name="email" placeholder="Enter your email" /></td></tr>
                     <tr><td>Password: </td><td><input type="password" name="password" placeholder="Enter your password" /></td></tr>
+                    <tr><td>DOB: </td><td><input type="date" name="dob"/></td></tr>
                     <tr>
                         <td> </td>
                         <td>
                             <a class="button" href="index.jsp">Cancel</a>
-                            <input class="button" type="submit" value="Sign In" />
+                            <input class="button" type="submit" value="Sign Up" />
                         </td>
                     </tr>
                 </table>

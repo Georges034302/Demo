@@ -10,13 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/layout.css"/>
+        
         <title>Login</title>
     </head>
-    <body>
-        <h1>Sign In</h1>
-        <div>
+    <body>       
+        <div style="margin: auto;">
             <form method="POST" action="loginAction.jsp">
                 <table class="table">
+                    <caption>Sign In</caption>
                     <tr><td>Email: </td><td><input type="text" name="email" placeholder="Enter your email" /></td></tr>
                     <tr><td>Password: </td><td><input type="password" name="password" placeholder="Enter your password" /></td></tr>
                     <tr>

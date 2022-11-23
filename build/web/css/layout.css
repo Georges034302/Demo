@@ -15,7 +15,7 @@ body{
 }
 
 .center {
-    margin-left : 18%;
+    margin: auto;
     margin-top : 15%;
     width: 60%;  
     border: 3px solid green;
@@ -57,8 +57,9 @@ body{
     border-collapse: collapse;
     padding: 10px;
     border: solid 1px;
-    margin-left : 30%;
+    margin: auto;
     margin-top : 15%;
+    width: 30%;
 }
 
 td {
@@ -72,4 +73,25 @@ input{
     width: 300px;
     letter-spacing: 2px;
     font-weight: bold;
+}
+
+caption{
+    font-size: 34px;
+    padding: 15px; 
+    background-color: green; 
+    border: solid 1px;
+    color: white;
+    border-color: black;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #1d1d1d;
+    font-size: 36px;
+    color: #afeb00;
+    padding: 3px;
+    text-align: center;
+    opacity: 0.5;
 }
