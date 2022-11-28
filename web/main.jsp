@@ -4,6 +4,9 @@
     Author     : George
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="com.demo.model.Blog"%>
+<%@page import="com.demo.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,25 +20,31 @@
     </head>
     <body onload="startTime()" >
         <% 
+            User user = (User) session.getAttribute("user");            
             String text = request.getParameter("blog");
+            user.add(text);           
+            List<Blog> blogs = user.getBlogs();
+            session.setAttribute("user", user);
         %>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class="navbar-header navbar-left">
-                    <a class="navbar-brand" href="#">Math World</a>                    
-                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="#">Link</a>               
+                    <a class="navbar-brand" href="#">My Blogs</a>                    
+                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="blog.jsp">Blog</a>               
                 </div> 
                 <div class="navbar-header navbar-left">                                        
-                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="index.jsp">Logout</a>               
+                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="logout.jsp">Logout</a>               
                 </div>
             </div>
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-1">
+                <div class="col-lg-2">
                     <table class="table table-bordered table-striped w-auto">
                         <thead class="table-dark"><tr><th colspan="2">My Blogs</th></tr></thead>
-                        <tr><td>Blog 1</td><td><%= text %></td></tr>                        
+                        <% for(Blog blog:blogs){ %>
+                            <tr><td><%= blog.getNumber() %></td><td><%= blog.getText() %></td></tr>   
+                        <% } %>
                     </table>
                 </div>
             </div>            

@@ -4,6 +4,7 @@
     Author     : George
 --%>
 
+<%@page import="com.demo.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,10 +15,13 @@
         <title>Blog Page</title>
     </head>
     <body onload="startTime()" >
+        <% 
+            User user = (User) session.getAttribute("user");
+        %>
         <form action="main.jsp" method="POST">
             <table class="table">
                 <caption>New Blog </caption>
-                <tr><td>User:</td><td>USER DATA - TODO </td></tr>
+                <tr><td>User:</td><td> <%= user.getID() %> </td></tr>
                 <tr><td>Blog:</td><td><textarea name="blog" rows="6" cols="60"></textarea></td></tr>
                 <tr><td></td>
                     <td>

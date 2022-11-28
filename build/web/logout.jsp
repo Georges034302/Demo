@@ -13,6 +13,6 @@
         <title>Logout Page</title>
     </head>
     <body>
-        <p>You have been logged out click <a href="index.jsp">here </a> to go back home</p>
+        <p>You have been logged out click <a href="index.jsp">here </a> to go back home</p>       
     </body>
 </html>

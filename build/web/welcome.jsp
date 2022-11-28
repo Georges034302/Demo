@@ -4,6 +4,8 @@
     Author     : George
 --%>
 
+<%@page import="com.demo.model.Users"%>
+<%@page import="com.demo.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +21,23 @@
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String dob = request.getParameter("dob");
+            
+            String emailRegEx = "([a-zA-Z]+)[._-]([a-zA-Z]+)@example.com";
+            String passRegEx = "[A-Z][a-z]{5,15}\\d{1,3}";
+            if(!email.matches(emailRegEx)){               
+                session.setAttribute("emailError", "Incorrect email format");
+                response.sendRedirect("register.jsp");                
+            }else if(!password.matches(passRegEx)){
+                session.setAttribute("passError", "Incorrect password format");
+                response.sendRedirect("register.jsp");                       
+            }else{
+                User user = new User(name, email, password, dob);
+                Users users = new Users();
+                users.add(user);
+
+                session.setAttribute("user", user);
+                session.setAttribute("users", users);
+            }
         %>
         <h1>Welcome to Java Community Blog <span><a class="button" href="index.jsp">Home</a>&ensp;<a class="button" href="blog.jsp">Blog</a></span></h1>
         <table class="table">

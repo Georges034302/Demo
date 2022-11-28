@@ -4,6 +4,8 @@
     Author     : George
 --%>
 
+<%@page import="com.demo.model.User"%>
+<%@page import="com.demo.model.Users"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,13 +19,19 @@
         <% 
             String email = request.getParameter("email");
             String password = request.getParameter("password");
+            Users users = (Users) session.getAttribute("users");
+            User user = users.user(email, password); 
         %>
         <h1>Welcome to Java Community Blog <span><a class="button" href="index.jsp">Home</a>&ensp;<a class="button" href="blog.jsp">Blog</a></span></h1>
-        <table class="table">
-            <caption>User Information</caption>
-            <tr><td>Email: </td><td> <%= email %></td></tr>
-            <tr><td>Password: </td><td> <%= password %></td></tr>
-        </table>
+        <% if(user != null){ %>
+            <table class="table">
+                <caption>User Information</caption>
+                <tr><td>Email: </td><td> <%= email %></td></tr>
+                <tr><td>Password: </td><td> <%= password %></td></tr>
+            </table>
+        <%}else {%>
+            <p>User does not exist</p>
+        <%}%>
     </body>
     <div id="clock" class="footer"></div>
 </html>

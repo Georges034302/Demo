@@ -14,13 +14,17 @@
         <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body onload="startTime()">
+        <% 
+            String emailError = (String)session.getAttribute("emailError");
+            String passError = (String)session.getAttribute("passError");
+        %>
        <div style="margin: auto;">
             <form method="POST" action="welcome.jsp">
                 <table class="table">
                     <caption>Sign Up</caption>
-                    <tr><td>Name: </td><td><input type="text" name="name" placeholder="Enter your name" /></td></tr>
-                    <tr><td>Email: </td><td><input type="text" name="email" placeholder="Enter your email" /></td></tr>
-                    <tr><td>Password: </td><td><input type="password" name="password" placeholder="Enter your password" /></td></tr>
+                    <tr><td>Name: </td><td><input type="text" name="name" placeholder="Enater your name" /></td></tr>
+                    <tr><td>Email: </td><td><input type="text" name="email" placeholder="<%= (emailError !=null) ? emailError :"Enter your name" %>" /></td></tr>
+                    <tr><td>Password: </td><td><input type="password" name="password" placeholder="<%= (passError !=null) ? passError :"Enter your password" %>" /></td></tr>
                     <tr><td>DOB: </td><td><input type="date" name="dob"/></td></tr>
                     <tr>
                         <td> </td>
@@ -31,7 +35,7 @@
                     </tr>
                 </table>
             </form>
-        </div>
+        </div>        
         <div id="clock" class="footer"></div>
     </body>
 </html>
