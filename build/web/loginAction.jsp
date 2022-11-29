@@ -4,8 +4,8 @@
     Author     : George
 --%>
 
-<%@page import="com.demo.model.User"%>
-<%@page import="com.demo.model.Users"%>
+<%@page import="com.model.User"%>
+<%@page import="com.model.Users"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

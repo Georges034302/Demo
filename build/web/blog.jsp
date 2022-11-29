@@ -4,7 +4,7 @@
     Author     : George
 --%>
 
-<%@page import="com.demo.model.User"%>
+<%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

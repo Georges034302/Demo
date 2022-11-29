@@ -95,3 +95,9 @@ caption{
     text-align: center;
     opacity: 0.5;
 }
+
+.message{       
+    color: #ff3333;
+    font-weight: bold;
+    font-size: 14px;
+}

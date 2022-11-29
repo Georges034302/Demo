@@ -1,4 +1,4 @@
-package com.demo.model;
+package com.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +22,14 @@ public class User implements Serializable{
 
     public User(String name, String email, String password, String DOB) {
         this.ID = (new Random()).nextInt(999);
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.DOB = DOB;
+    }
+    
+    public void update(int ID, String name, String email, String password, String DOB){
+        this.ID = ID;
         this.name = name;
         this.email = email;
         this.password = password;

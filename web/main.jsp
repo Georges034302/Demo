@@ -5,8 +5,8 @@
 --%>
 
 <%@page import="java.util.List"%>
-<%@page import="com.demo.model.Blog"%>
-<%@page import="com.demo.model.User"%>
+<%@page import="com.model.Blog"%>
+<%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,15 +22,18 @@
         <% 
             User user = (User) session.getAttribute("user");            
             String text = request.getParameter("blog");
-            user.add(text);           
+            if(text != null){
+                user.add(text);         
+            }
             List<Blog> blogs = user.getBlogs();
             session.setAttribute("user", user);
         %>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class="navbar-header navbar-left">
-                    <a class="navbar-brand" href="#">My Blogs</a>                    
-                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="blog.jsp">Blog</a>               
+                    <a class="navbar-brand" href="#">Welcome <%= user.getName() %> </a>                    
+                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="blog.jsp">Blog</a>   
+                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="account.jsp">Account</a>
                 </div> 
                 <div class="navbar-header navbar-left">                                        
                     <a style="text-decoration: none; color: orange; font-size: 16px;" href="logout.jsp">Logout</a>               

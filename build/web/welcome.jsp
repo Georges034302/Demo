@@ -4,8 +4,8 @@
     Author     : George
 --%>
 
-<%@page import="com.demo.model.Users"%>
-<%@page import="com.demo.model.User"%>
+<%@page import="com.model.Users"%>
+<%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,6 +24,7 @@
             
             String emailRegEx = "([a-zA-Z]+)[._-]([a-zA-Z]+)@example.com";
             String passRegEx = "[A-Z][a-z]{5,15}\\d{1,3}";
+            
             if(!email.matches(emailRegEx)){               
                 session.setAttribute("emailError", "Incorrect email format");
                 response.sendRedirect("register.jsp");                
