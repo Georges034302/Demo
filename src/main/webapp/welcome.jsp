@@ -43,10 +43,10 @@
         <h1>Welcome to Java Community Blog <span><a class="button" href="index.jsp">Home</a>&ensp;<a class="button" href="blog.jsp">Blog</a></span></h1>
         <table class="table">
             <caption>User Information</caption>
-            <tr><td>Name: </td><td> <%= name %></td></tr>
-            <tr><td>Email: </td><td> <%= email %></td></tr>
-            <tr><td>Password: </td><td> <%= password %></td></tr>
-            <tr><td>D.O.B.: </td><td> <%= dob %></td></tr>
+            <tr><td>Name </td><td> <%= name %></td></tr>
+            <tr><td>Email </td><td> <%= email %></td></tr>
+            <tr><td>Password </td><td> <%= password %></td></tr>
+            <tr><td>D.O.B. </td><td> <%= dob %></td></tr>
         </table>
         <div id="clock" class="footer"></div>
     </body>
