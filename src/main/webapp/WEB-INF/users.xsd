@@ -5,6 +5,8 @@
            targetNamespace="http://www.xmldemo.com/demo"
            xmlns="http://www.xmldemo.com/demo"
            elementFormDefault="qualified">
+    
+    <!--    User ID format-->
     <xs:simpleType name="IDFormat">
         <xs:restriction base="xs:integer">
             <xs:pattern value="\d{6}" />
