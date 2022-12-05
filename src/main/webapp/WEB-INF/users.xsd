@@ -5,47 +5,47 @@
            targetNamespace="http://www.xmldemo.com/demo"
            xmlns="http://www.xmldemo.com/demo"
            elementFormDefault="qualified">
+    <xs:simpleType name="IDFormat">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{6}" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="nameFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z][a-z]+[\s])+[A-Z][a-z]*" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="emailFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" />
+        </xs:restriction>
+    </xs:simpleType> 
+    
+    <xs:simpleType name="passwordFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z][a-z]{6,}\d{3,}" />
+        </xs:restriction>
+    </xs:simpleType> 
+    
+    <xs:simpleType name="dobFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}-\d{2}-\d{2}" />
+        </xs:restriction>
+    </xs:simpleType>
+    
     <xs:element name="users">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="user" maxOccurs="unbounded" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="ID">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:integer">
-                                        <xs:pattern value="\d{6}" />
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="name">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="([A-Z][a-z]+[\s])+[A-Z][a-z]*" />
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="email">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" />
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="password">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="[A-Z][a-z]{6,}\d{3,}" />
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="dob">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:pattern value="\d{4}-\d{2}-\d{2}" />
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>                            
+                            <xs:element type="IDFormat" name="ID"/>
+                            <xs:element type="nameFormat" name="name"/>                   
+                            <xs:element type="emailFormat" name="email"/>
+                            <xs:element type="passwordFormat" name="password"/>
+                            <xs:element type="dobFormat" name="dob"/>                          
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
