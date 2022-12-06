@@ -36,8 +36,8 @@
                 user.update(ID, name, email, password, dob);
                 
                 Users users = userDAO.getUsers();
-                users.add(user);
-                userDAO.save(users, filename);
+                
+                userDAO.update(users, user);
                 
                 session.setAttribute("user", user);
             } else {

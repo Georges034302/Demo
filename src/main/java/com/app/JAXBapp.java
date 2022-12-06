@@ -1,9 +1,9 @@
 package com.app;
 
+import com.utils.In;
 import com.model.User;
 import com.model.Users;
 import com.model.dao.UserDAO;
-import com.utils.In;
 import java.io.IOException;
 import javax.xml.bind.JAXBException;
 
@@ -14,14 +14,16 @@ import javax.xml.bind.JAXBException;
 public class JAXBapp {
     public static void main(String[] args) throws JAXBException, IOException {
         JAXBapp app = new JAXBapp();
-        app.read();
+        app.menu();
     }
     
     private String fileName = "D:\\GitHub\\demo\\src\\main\\webapp\\WEB-INF\\users.xml";
     private Users users;
-    private UserDAO userDAO = new UserDAO();
+    private UserDAO userDAO;
     
-    public JAXBapp(){             
+    public JAXBapp(){  
+        System.out.println("Loading ...");
+        userDAO = new UserDAO();
     }
     
     private int readID(){

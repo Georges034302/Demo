@@ -13,11 +13,14 @@
         <script type="text/javascript" src="js/index.js"></script>
         <title>Login</title>
     </head>
-    <body onload="startTime()">       
+    <body onload="startTime()">  
+         <% 
+            String exist = (String) session.getAttribute("error");
+        %>
         <div style="margin: auto;">
             <form method="POST" action="loginAction.jsp">
                 <table class="table">
-                    <caption>Sign In</caption>
+                    <caption>Sign In <span class="message"><%= (exist != null) ? exist : ""%></span></caption>
                     <tr><td>Email: </td><td><input type="text" name="email" placeholder="Enter your email" /></td></tr>
                     <tr><td>Password: </td><td><input type="password" name="password" placeholder="Enter your password" /></td></tr>
                     <tr>
@@ -30,6 +33,7 @@
                 </table>
             </form>
         </div>
+         
         <div id="clock" class="footer"></div>
     </body>
 </html>

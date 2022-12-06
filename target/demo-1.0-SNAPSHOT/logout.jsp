@@ -13,6 +13,7 @@
         <title>Logout Page</title>
     </head>
     <body>
+        <% session.invalidate(); %>
         <p>You have been logged out click <a href="index.jsp">here </a> to go back home</p>       
     </body>
 </html>

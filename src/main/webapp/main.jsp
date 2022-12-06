@@ -33,8 +33,8 @@
             List<Blog> blogs = user.getBlogs();
             
             Users users = userDAO.getUsers();
-            users.add(user);
-            userDAO.save(users, filename);
+           
+            userDAO.update(users, user);
             
             session.setAttribute("user", user);
         %>

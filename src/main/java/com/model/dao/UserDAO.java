@@ -42,7 +42,7 @@ public class UserDAO implements Serializable{
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         FileOutputStream fout = new FileOutputStream(filename);
         m.marshal(users, fout);
-        m.marshal(users, System.out);
+        //m.marshal(users, System.out);  //this is used to prove that the objects are mapped to XML
         fout.close();
     }
     
