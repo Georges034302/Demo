@@ -1,5 +1,6 @@
 package com.model.dao;
 
+import com.model.User;
 import com.model.Users;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -52,5 +53,19 @@ public class UserDAO implements Serializable{
         FileInputStream fin = new FileInputStream(filename);
         users = (Users) um.unmarshal(fin);
         return users;
+    }
+    
+    public void update(Users users, User other) throws JAXBException, IOException{
+        this.users = users;
+        this.users.remove(other);
+        save(this.users, fileName);
+        this.users.add(other);
+        save(this.users, fileName);
+    }
+    
+    public void delete(Users users,User user) throws JAXBException, IOException{
+        this.users = users;
+        this.users.remove(user);
+        save(this.users, fileName);
     }
 }

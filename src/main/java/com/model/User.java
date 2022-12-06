@@ -48,6 +48,10 @@ public class User implements Serializable{
         return this.email.equals(email);
     }
     
+    public boolean match(User other){
+        return this.ID == other.ID;
+    }
+    
     public void add(String text){
         this.blogs.add(new Blog(blogs.size()+1, text));
     }
@@ -99,6 +103,10 @@ public class User implements Serializable{
     public void setDOB(String DOB) {
         this.DOB = DOB;
     }
-    
+
+    @Override
+    public String toString() {
+        return "User{" + "ID=" + ID + ", name=" + name + ", email=" + email + ", password=" + password + ", DOB=" + DOB + ", blogs=" + blogs + '}';
+    }    
     
 }

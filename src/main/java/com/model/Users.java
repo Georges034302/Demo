@@ -37,4 +37,12 @@ public class Users implements Serializable{
     public void setUsers(List<User> users) {
         this.users = users;
     }   
+    
+    public void remove(User other){
+        users.removeIf(u -> u.match(other));
+    }
+    
+    public void show(){
+        this.users.forEach(u -> System.out.println(u));
+    }
 }
