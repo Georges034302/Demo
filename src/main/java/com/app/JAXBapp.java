@@ -9,7 +9,7 @@ import java.io.IOException;
 import javax.xml.bind.JAXBException;
 
 /* 
- * Run Maven Standalone Java app
+ * Run Maven Standalone Java app (on localhost or other server)
  * (Assuming JAXBapp is the main class)
  * (Assuming com.app is the main class package)
  *
