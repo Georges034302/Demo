@@ -55,10 +55,9 @@
                     <tr><td>DOB: </td><td><input type="date" name="dob" value="<%= user.getDOB()%>"/></td></tr>
                     <tr><input type="hidden" name="submitted" value="submitted"></tr>
                     <tr>
-                        <td> </td>
+                        <td><a class="button" href="main.jsp">Dashboard</a> </td>
                         <td>
-                            <a class="button" href="main.jsp">Main</a>
-                            <input class="button" type="submit" value="Update" />
+                            <input class="button" type="submit" value="Update" />                                                       
                         </td>
                     </tr>
                 </table>

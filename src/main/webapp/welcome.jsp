@@ -43,7 +43,7 @@
             }              
 
         %>
-        <h1>Welcome to Java Community Blog <span><a class="button" href="index.jsp">Home</a>&ensp;<a class="button" href="blog.jsp">Blog</a></span></h1>
+        <h1>Welcome to Java Community Blog <span><a class="button" href="blog.jsp">Blog</a></span></h1>
         <table class="table">
             <caption>User Information</caption>
             <tr><td>Name </td><td> <%= name%></td></tr>
