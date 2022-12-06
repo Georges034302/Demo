@@ -1,33 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
     <user>
-        <ID>100000</ID>
-        <name>John Smith</name>
-        <email>john.smith@uts.com</email>
-        <password>Helloworld123</password>
-        <dob>1990-12-05</dob> 
+        <ID>920415</ID>
+        <name>Alice Ming</name>
+        <email>alice.m@example.com</email>
+        <password>Helloworld222</password>
+        <DOB>1999-02-03</DOB>
         <blogs>
-            <blog>
-                <number>1</number>
-                <text>my first blog</text>
-            </blog>
-             <blog>
-                <number>2</number>
-                <text>my second blog</text>
-            </blog>
-        </blogs>       
-    </user>
-    <user>
-        <ID>100001</ID>
-        <name>David Jones</name>
-        <email>alen.david@example.com</email>
-        <password>Demopass123</password>
-        <dob>2002-07-11</dob> 
-        <blogs>
-            <blog>
-                <number>1</number>
-                <text>XML is useful</text>
-            </blog>             
-        </blogs>       
+            <number>1</number>
+            <text>JAXB is useful</text>
+        </blogs>
     </user>
 </users>
