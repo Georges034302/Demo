@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.model;
 
 import java.io.Serializable;
+import javax.xml.bind.annotation.*;
 
-/**
- *
- * @author George
- */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "blog")
 public class Blog implements Serializable{
     private int number;
     private String text;

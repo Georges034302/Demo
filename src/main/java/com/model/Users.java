@@ -3,12 +3,12 @@ package com.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.*;
 
-/**
- *
- * @author George
- */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "users")
 public class Users implements Serializable{
+    @XmlElement(name = "user")
     private List<User> users = new ArrayList<>();
 
     public Users() {

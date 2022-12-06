@@ -4,24 +4,24 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import javax.xml.bind.annotation.*;
 
-/**
- *
- * @author George
- */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "user")
 public class User implements Serializable{
     private int ID;
     private String name;
     private String email;
     private String password;
     private String DOB;
+    @XmlElement(name = "blogs")
     private List<Blog> blogs = new ArrayList();
 
     public User() {
     }
 
     public User(String name, String email, String password, String DOB) {
-        this.ID = (new Random()).nextInt(999);
+        this.ID = (new Random()).nextInt(999999);
         this.name = name;
         this.email = email;
         this.password = password;

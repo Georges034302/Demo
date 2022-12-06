@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<users xmlns="http://www.xmldemo.com/demo"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.xmldemo.com/demo users.xsd">
+<users>
     <user>
         <ID>100000</ID>
         <name>John Smith</name>

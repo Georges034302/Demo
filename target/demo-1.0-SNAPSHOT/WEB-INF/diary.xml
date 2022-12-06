@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<diary> 
+<diary xmlns="http://www.xmldemo.com/demo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.xmldemo.com/demo diary.xsd"> 
     <profile>
         <name>Sammy Kohg</name>
         <introduction>
-            Hi, I'm Sammy and I'm an IT student at the University of Technology, Sydney.
-            I'm originally from Germany, and I decided to start this diary to practice
+            Hi, I'm Olaf, I'm originally from Germany, and I decided to start this diary to practice
             my English.
         </introduction>
         <dob>1/1/2000</dob>
         <email>Sammy.Kohg@gmail.com</email>
         <interests>
             <interest>
-                <name>Football</name>
+                <name>Football Game</name>
                 <description>A ball game.</description>
             </interest>
             <interest>
-                <name>TV</name>
+                <name>Led Tv</name>
                 <description>I like to watch the football show.</description>
             </interest>
         </interests>

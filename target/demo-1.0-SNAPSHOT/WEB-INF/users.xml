@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<users xmlns="http://www.xmldemo.com/demo"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.xmldemo.com/demo users.xsd">
+<users>
     <user>
         <ID>100000</ID>
         <name>John Smith</name>
         <email>john.smith@uts.com</email>
         <password>Helloworld123</password>
-        <dob>1990-12-05</dob>        
+        <dob>1990-12-05</dob> 
+        <blogs>
+            <blog>
+                <number>1</number>
+                <text>my first blog</text>
+            </blog>
+             <blog>
+                <number>2</number>
+                <text>my second blog</text>
+            </blog>
+        </blogs>       
     </user>
     <user>
         <ID>100001</ID>
         <name>David Jones</name>
         <email>alen.david@example.com</email>
         <password>Demopass123</password>
-        <dob>2002-07-11</dob>        
+        <dob>2002-07-11</dob> 
+        <blogs>
+            <blog>
+                <number>1</number>
+                <text>XML is useful</text>
+            </blog>             
+        </blogs>       
     </user>
 </users>
