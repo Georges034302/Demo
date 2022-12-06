@@ -36,8 +36,7 @@
                 Users users = new Users();
                 users.add(user);
 
-                session.setAttribute("user", user);
-                session.setAttribute("users", users);
+                session.setAttribute("user", user);                
             }
         %>
         <h1>Welcome to Java Community Blog <span><a class="button" href="index.jsp">Home</a>&ensp;<a class="button" href="blog.jsp">Blog</a></span></h1>

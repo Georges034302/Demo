@@ -4,6 +4,7 @@
     Author     : George
 --%>
 
+<%@page import="com.model.Users"%>
 <%@page import="java.util.List"%>
 <%@page import="com.model.Blog"%>
 <%@page import="com.model.User"%>
@@ -19,6 +20,10 @@
         <title>Blogs</title>
     </head>
     <body onload="startTime()" >
+        <% String filename = application.getRealPath("/WEB-INF/users.xml"); %>
+        <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
+            <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
+        </jsp:useBean>
         <% 
             User user = (User) session.getAttribute("user");            
             String text = request.getParameter("blog");
@@ -26,6 +31,11 @@
                 user.add(text);         
             }
             List<Blog> blogs = user.getBlogs();
+            
+            Users users = userDAO.getUsers();
+            users.add(user);
+            userDAO.save(users, filename);
+            
             session.setAttribute("user", user);
         %>
         <nav class="navbar navbar-dark bg-dark">

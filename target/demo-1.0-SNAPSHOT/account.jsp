@@ -4,6 +4,7 @@
     Author     : George
 --%>
 
+<%@page import="com.model.Users"%>
 <%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,9 +16,13 @@
         <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body onload="startTime()">   
-        <%! 
+        <%!
             User user;
         %>
+        <% String filename = application.getRealPath("/WEB-INF/users.xml");%>
+        <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
+            <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
+        </jsp:useBean>
         <%
             String submitted = request.getParameter("submitted");
 
@@ -28,9 +33,14 @@
                 String password = request.getParameter("password");
                 String dob = request.getParameter("dob");
                 user = (User) session.getAttribute("user");
-                user.update(ID, name, email, password, dob);     
+                user.update(ID, name, email, password, dob);
+                
+                Users users = userDAO.getUsers();
+                users.add(user);
+                userDAO.save(users, filename);
+                
                 session.setAttribute("user", user);
-            }else{
+            } else {
                 user = (User) session.getAttribute("user");
             }
         %>
