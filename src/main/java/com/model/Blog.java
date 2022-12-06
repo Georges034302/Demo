@@ -1,10 +1,7 @@
 package com.model;
 
 import java.io.Serializable;
-import javax.xml.bind.annotation.*;
 
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "blog")
 public class Blog implements Serializable{
     private int number;
     private String text;

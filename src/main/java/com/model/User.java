@@ -14,7 +14,9 @@ public class User implements Serializable{
     private String email;
     private String password;
     private String DOB;
-    @XmlElement(name = "blogs")
+    
+    @XmlElementWrapper(name = "blogs")
+    @XmlElement(name ="blog")
     private List<Blog> blogs = new ArrayList();
 
     public User() {
@@ -106,7 +108,7 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return "User{" + "ID=" + ID + ", name=" + name + ", email=" + email + ", password=" + password + ", DOB=" + DOB + ", blogs=" + blogs + '}';
+        return  ID + "\t" + name + "\t" + email + "\t" + DOB;
     }    
     
 }
