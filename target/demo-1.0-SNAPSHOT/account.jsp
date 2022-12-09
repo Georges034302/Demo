@@ -31,7 +31,7 @@
                 String name = request.getParameter("name");
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
-                String dob = request.getParameter("dob");
+                String dob = request.getParameter("dob");                
                 user = (User) session.getAttribute("user");
                 user.update(ID, name, email, password, dob);
                 
@@ -48,10 +48,10 @@
             <form method="POST" action="account.jsp">
                 <table class="table">
                     <caption>Edit User <span class="message"><%= (submitted != null) ? "Update is Successful" : ""%></span></caption>
-                    <tr><td>ID: </td><td><input type="text" name="ID" value="${user.ID}" readonly="true" /></td></tr>
-                    <tr><td>Name: </td><td><input type="text" name="name" value="${user.name}" /></td></tr>
-                    <tr><td>Email: </td><td><input type="text" name="email" value="${user.email}" readonly="true"/></td></tr>
-                    <tr><td>Password: </td><td><input type="password" name="password" value="${user.password}" /></td></tr>
+                    <tr><td>ID: </td><td><input type="text" name="ID" value="<%= user.getID()%>" readonly="true" /></td></tr>
+                    <tr><td>Name: </td><td><input type="text" name="name" value="<%= user.getName()%>" /></td></tr>
+                    <tr><td>Email: </td><td><input type="text" name="email" value="<%= user.getEmail()%>" readonly="true"/></td></tr>
+                    <tr><td>Password: </td><td><input type="password" name="password" value="<%= user.getPassword()%>" /></td></tr>
                     <tr><td>DOB: </td><td><input type="date" name="dob" value="<%= user.getDOB()%>"/></td></tr>
                     <tr><input type="hidden" name="submitted" value="submitted"></tr>
                     <tr>

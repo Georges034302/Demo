@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xsl/cd.xsl"?>
+<cd> 
+  <title>Classic Hits</title>
+  <artist>The King Elvis</artist> 
+  <tracklist>
+    <track id="1">
+      <title>Always on My Mind</title>
+      <time>4:38</time>
+      <rating>2</rating>
+    </track> 
+    <track id="2">
+      <title>It's Now or Never</title>
+      <time>4:10</time>
+      <rating>4</rating>
+    </track> 
+    <track id="3">
+      <title>I Gotta Know</title>
+      <time>5:02</time>
+      <rating>3</rating>
+    </track> 
+    <track id="4">
+      <title>In the Garden</title>
+      <time>3:57</time>
+      <rating>1</rating>
+    </track>
+  </tracklist> 
+</cd>
