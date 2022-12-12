@@ -39,13 +39,19 @@
     </xsl:template>
     <!-- Specify the cascading XSL template rules -->
     <xsl:template match="cd/title">
-        <h1>           
-            <xsl:apply-templates/>            
+        <h1 style="text-align:center">    
+            <img style="float:left" src="star.gif" width="40"/>       
+            <xsl:apply-templates/>  
+            <img style="float:right" src="star.gif" width="40"/>          
         </h1>
     </xsl:template>
     <xsl:template match="cd/artist">        
         <h2>            
             <xsl:apply-templates/>
+            <xsl:text >&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</xsl:text> 
+            <img style="float:left" src="star.gif" width="40"/>    
+            <img src="elvis.png" width="60" height="100"/>	
+            <img style="float:right" src="star.gif" width="40"/>
         </h2>
     </xsl:template>
     <xsl:template match="tracklist">

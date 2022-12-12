@@ -41,7 +41,14 @@
                 
                 session.setAttribute("user", user);
             } else {
-                user = (User) session.getAttribute("user");
+                String userViewEmail = request.getParameter("email");
+                Users users = userDAO.getUsers();
+                User userView = users.user(userViewEmail);
+                if(userView != null){
+                    user = userView;
+                }else{
+                    user = (User) session.getAttribute("user");
+                }
             }
         %>
         <div style="margin: auto;">
