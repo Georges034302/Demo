@@ -39,19 +39,19 @@
     </xsl:template>
     <!-- Specify the cascading XSL template rules -->
     <xsl:template match="cd/title">
-        <h1>            
+        <h1>           
             <xsl:apply-templates/>            
         </h1>
     </xsl:template>
     <xsl:template match="cd/artist">        
-        <h2>
-            <img src="elvis.png" width="100"/>
+        <h2>            
             <xsl:apply-templates/>
         </h2>
     </xsl:template>
     <xsl:template match="tracklist">
         <table>
             <thead>
+                <th>ID</th>
                 <th>TITLE</th>
                 <th>TIME</th>
                 <th>RATING</th>
@@ -63,9 +63,14 @@
     </xsl:template>
     <xsl:template match="track">
         <tr>
+            <td><xsl:value-of select="@id"/></td>
             <td><xsl:value-of select="title"/></td>
             <td><xsl:value-of select="time"/></td>
-            <td><xsl:value-of select="rating"/></td>
+            <td>
+                <div style="width:100px;background:white;height:12px;">
+                    <div style="width:{20*rating}px;background:green;height:12px;"></div>                    
+                </div>
+            </td>
         </tr>
     </xsl:template>
 </xsl:stylesheet>
