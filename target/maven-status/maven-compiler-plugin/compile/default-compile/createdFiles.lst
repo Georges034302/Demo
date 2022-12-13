@@ -5,5 +5,4 @@ com\app\TransformerApp.class
 com\model\User.class
 com\model\dao\XmlTransformer.class
 com\utils\In.class
-.netbeans_automatic_build
 com\model\dao\UserDAO.class

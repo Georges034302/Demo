@@ -12,6 +12,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Delete Page</title>
+        <link rel="stylesheet" href="css/layout.css"/>
+        <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body>
         <% String filename = application.getRealPath("/WEB-INF/users.xml");%>
@@ -20,11 +22,13 @@
         </jsp:useBean>
         <% 
             User user = (User) session.getAttribute("user");
-            Users users = userDAO.getUsers();
-            userDAO.delete(users, user);
+            if(user != null){
+                Users users = userDAO.getUsers();
+                userDAO.delete(users, user);            
         %>
-        <h2><%= user.getName() %> record has been deleted!</h2>
+            <h2><%= user.getName() %> record has been deleted!</h2>
+            <%}%>
         <% session.invalidate(); %>
-        <p>You have been logged out click <a href="index.jsp">here </a> to go back home</p>   
+        <p class="message">You have been logged out click <a href="index.jsp">here </a> to go back home</p>   
     </body>
 </html>
