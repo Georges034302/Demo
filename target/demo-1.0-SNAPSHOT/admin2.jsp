@@ -6,7 +6,11 @@
 <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
     <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
 </jsp:useBean>
-
+<%
+    session.invalidate();
+    request.setAttribute("email", null);
+    request.removeAttribute("email");
+%>
 <% Users users = userDAO.getUsers(); %>
 
 <c:import url="/xsl/users.xsl" var="xslt"/>
