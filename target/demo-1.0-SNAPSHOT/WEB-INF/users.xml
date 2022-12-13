@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="xsl/users.xsl"?>
 <users>
     <user>
         <ID>834281</ID>
@@ -32,6 +31,19 @@
             <blog>
                 <number>2</number>
                 <text>Java is fun</text>
+            </blog>
+        </blogs>
+    </user>
+    <user>
+        <ID>561676</ID>
+        <name>Jim Carry</name>
+        <email>jim.carry@example.com</email>
+        <password>Helloworld123</password>
+        <DOB>1992-01-02</DOB>
+        <blogs>
+            <blog>
+                <number>1</number>
+                <text>Hello world</text>
             </blog>
         </blogs>
     </user>

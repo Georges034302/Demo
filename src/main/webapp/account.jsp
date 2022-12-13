@@ -25,30 +25,25 @@
         </jsp:useBean>
         <%
             String submitted = request.getParameter("submitted");
+            String emailView = request.getParameter("email");
+            Users users = userDAO.getUsers();
+
+            if (emailView != null) {
+                user = users.user(emailView);
+            } else {
+                user = (User) session.getAttribute("user");
+            }
 
             if (submitted != null && submitted.equals("submitted")) {
                 int ID = Integer.parseInt(request.getParameter("ID"));
                 String name = request.getParameter("name");
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
-                String dob = request.getParameter("dob");                
-                user = (User) session.getAttribute("user");
+                String dob = request.getParameter("dob");
+
                 user.update(ID, name, email, password, dob);
-                
-                Users users = userDAO.getUsers();
-                
                 userDAO.update(users, user);
-                
                 session.setAttribute("user", user);
-            } else {
-                String userViewEmail = request.getParameter("email");
-                Users users = userDAO.getUsers();
-                User userView = users.user(userViewEmail);
-                if(userView != null){
-                    user = userView;
-                }else{
-                    user = (User) session.getAttribute("user");
-                }
             }
         %>
         <div style="margin: auto;">
@@ -62,7 +57,13 @@
                     <tr><td>DOB: </td><td><input type="date" name="dob" value="<%= user.getDOB()%>"/></td></tr>
                     <tr><input type="hidden" name="submitted" value="submitted"></tr>
                     <tr>
-                        <td><a class="button" href="main.jsp">Dashboard</a> </td>
+                        <td>
+                            <% if (emailView != null) { %>
+                            <a class="button" href="index.jsp">Home</a> 
+                            <%} else { %>
+                            <a class="button" href="main.jsp">Dashboard</a>
+                            <%}%>
+                        </td>
                         <td>
                             <input class="button" type="submit" value="Update" /> 
                             <a class="button" href="delete.jsp">Delete</a>
