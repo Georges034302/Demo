@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
     <user>
-        <ID>834281</ID>
-        <name>John Smith</name>
-        <email>john.smith@example.com</email>
-        <password>Helloworld123</password>
-        <DOB>2000-02-12</DOB>
-        <blogs>
-            <blog>
-                <number>1</number>
-                <text>first</text>
-            </blog>
-            <blog>
-                <number>2</number>
-                <text>second</text>
-            </blog>
-        </blogs>
-    </user>
-    <user>
         <ID>608493</ID>
         <name>Alice Ming</name>
         <email>alice.m@example.com</email>
@@ -31,6 +14,23 @@
             <blog>
                 <number>2</number>
                 <text>Java is fun</text>
+            </blog>
+        </blogs>
+    </user>
+    <user>
+        <ID>834281</ID>
+        <name>John T Smith</name>
+        <email>john.smith@example.com</email>
+        <password>Helloworld123</password>
+        <DOB>2000-02-12</DOB>
+        <blogs>
+            <blog>
+                <number>1</number>
+                <text>first</text>
+            </blog>
+            <blog>
+                <number>2</number>
+                <text>second</text>
             </blog>
         </blogs>
     </user>
