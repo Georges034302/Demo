@@ -33,7 +33,7 @@
                 </table>
             </form>
         </div>
-         
+        <% exist = ""; %> 
         <div id="clock" class="footer"></div>
     </body>
 </html>

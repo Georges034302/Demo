@@ -16,19 +16,28 @@
         <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body>
+        <%!
+            User user;
+        %>
         <% String filename = application.getRealPath("/WEB-INF/users.xml");%>
         <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
             <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
         </jsp:useBean>
-        <% 
-            User user = (User) session.getAttribute("user");
-            if(user != null){
-                Users users = userDAO.getUsers();
-                userDAO.delete(users, user);            
+        <%
+            Users users = userDAO.getUsers();
+            String emailView = (String) session.getAttribute("emailView");
+            if (emailView != null) {
+                user = users.user(emailView);
+            }else{
+                user = (User) session.getAttribute("user");
+            }
+
+            if (user != null) {
+                userDAO.delete(users, user);
         %>
-            <h2><%= user.getName() %> record has been deleted!</h2>
+                <h2><%= user.getName()%> record has been deleted!</h2>
             <%}%>
-        <% session.invalidate(); %>
+        <% session.invalidate();%>
         <p class="message">You have been logged out click <a href="index.jsp">here </a> to go back home</p>   
     </body>
 </html>

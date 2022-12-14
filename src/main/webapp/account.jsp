@@ -25,11 +25,12 @@
         </jsp:useBean>
         <%
             String submitted = request.getParameter("submitted");
-            String emailView = request.getParameter("email");
+            String emailView = request.getParameter("emailView");
             Users users = userDAO.getUsers();
 
             if (emailView != null) {
                 user = users.user(emailView);
+                session.setAttribute("emailView", emailView);
             } else {
                 user = (User) session.getAttribute("user");
             }
@@ -40,7 +41,9 @@
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
                 String dob = request.getParameter("dob");
-
+                emailView = (String)session.getAttribute("emailView");
+                if(emailView != null)
+                    user = users.user(emailView);
                 user.update(ID, name, email, password, dob);
                 userDAO.update(users, user);
                 session.setAttribute("user", user);
@@ -59,7 +62,7 @@
                     <tr>
                         <td>
                             <% if (emailView != null) { %>
-                            <a class="button" href="index.jsp">Home</a> 
+                            <a class="button" href="admin3.jsp">Accounts</a> 
                             <%} else { %>
                             <a class="button" href="main.jsp">Dashboard</a>
                             <%}%>

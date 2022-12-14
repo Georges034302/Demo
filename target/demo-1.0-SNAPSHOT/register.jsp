@@ -17,7 +17,7 @@
         <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body onload="startTime()">
-        <% 
+        <%
             String exist = (String) session.getAttribute("error");
         %>
         <div style="margin: auto;">
@@ -37,7 +37,8 @@
                     </tr>
                 </table>
             </form>
-        </div>         
+        </div> 
+        <% exist = "";%>
         <div id="clock" class="footer"></div>
     </body>
 </html>
