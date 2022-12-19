@@ -27,7 +27,7 @@
         %>
         <h1 style="text-align: center">Java Community Blog</h1>
         <div class="center" >
-            <a class="button" href="admin.jsp">Admin</a>  &emsp; 
+            <a class="button" href="admin5.jsp">Admin</a>  &emsp; 
             <a class="button" href="login.jsp">Login</a>  &emsp;             
             <a class="button" href="register.jsp">Register</a> &emsp;
             <a class="button" href="math.jsp">Math</a> &emsp;
