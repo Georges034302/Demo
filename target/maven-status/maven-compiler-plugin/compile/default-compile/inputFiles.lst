@@ -1,5 +1,6 @@
 D:\GitHub\demo\src\main\java\com\app\TransformerApp.java
 D:\GitHub\demo\src\main\java\com\model\Users.java
+D:\GitHub\demo\src\main\java\com\model\Number.java
 D:\GitHub\demo\src\main\java\com\rest\client\UserServiceClient.java
 D:\GitHub\demo\src\main\java\com\model\User.java
 D:\GitHub\demo\src\main\java\com\utils\In.java
@@ -11,3 +12,4 @@ D:\GitHub\demo\src\main\java\com\app\JAXBapp.java
 D:\GitHub\demo\src\main\java\com\model\Admin.java
 D:\GitHub\demo\src\main\java\com\model\dao\AdminDAO.java
 D:\GitHub\demo\src\main\java\com\rest\UserService.java
+D:\GitHub\demo\src\main\java\com\rest\MathService.java
