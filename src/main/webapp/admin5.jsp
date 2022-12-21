@@ -10,15 +10,14 @@
         <title>Admin View - User Service Client</title>
     </head>
     <body>
-        <%
-            session.invalidate();
+        <%            
             request.setAttribute("email", null);
             request.removeAttribute("email");
         %>        
         <% 
             String xslPath = application.getRealPath("/xsl/users.xsl");
             XmlTransformer transformer = new XmlTransformer();
-            transformer.transform(xslPath, UserServiceClient.xmlPath(), new StreamResult(out));
+            transformer.transform(xslPath, UserServiceClient.fetchUsers(), new StreamResult(out));
         %>
 
     </body>

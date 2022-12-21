@@ -6,8 +6,7 @@
 <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
     <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
 </jsp:useBean>
-<%
-    session.invalidate();
+<%    
     request.setAttribute("email", null);
     request.removeAttribute("email");
 %>

@@ -15,8 +15,8 @@ import java.net.URL;
  * @author George
  */
 public class UserServiceClient {
-    public static String xmlPath() throws MalformedURLException, IOException{
-        URL uri = new URL("http://localhost:8080/demo/rest/userapi/users");
+    public static String xmlPath(String api,String fileName) throws MalformedURLException, IOException{
+        URL uri = new URL(api);
         HttpURLConnection connection = (HttpURLConnection) uri.openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Accept", "application/xml");
@@ -27,7 +27,7 @@ public class UserServiceClient {
         
         BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         
-        File file = new File("D:\\GitHub\\demo\\src\\main\\webapp\\WEB-INF\\usergen.xml");        
+        File file = new File("D:\\GitHub\\demo\\src\\main\\webapp\\WEB-INF\\"+fileName);        
         if(!file.exists())
             file.createNewFile();
         
@@ -42,5 +42,13 @@ public class UserServiceClient {
         bw.close();
         connection.disconnect();
         return file.getAbsolutePath();
+    }
+    
+    public static String fetchUsers() throws IOException{
+        return xmlPath("http://localhost:8080/demo/rest/userapi/users","usersgen.xml");
+    }
+    
+    public static String fetchUser(int ID) throws IOException{
+        return xmlPath("http://localhost:8080/demo/rest/userapi/user/ID/"+ID,"usergen.xml");
     }
 }

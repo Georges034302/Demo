@@ -62,7 +62,7 @@
                     <tr>
                         <td>
                             <% if (emailView != null) { %>
-                            <a class="button" href="admin3.jsp">Accounts</a> 
+                            <a class="button" href="adminAction.jsp">Accounts</a> 
                             <%} else { %>
                             <a class="button" href="main.jsp">Dashboard</a>
                             <%}%>
