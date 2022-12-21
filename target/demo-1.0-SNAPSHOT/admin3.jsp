@@ -6,7 +6,8 @@
     request.setAttribute("emailView", null);
     request.removeAttribute("emailView");
 %>
-
+<br/>
+<div class="label">Admin View 3</div>
 <c:import url="/WEB-INF/users.xml" var="xml"/>
 <c:import url="/xsl/users.xsl" var="xsl"/>
 <x:transform xml="${xml}" xslt="${xsl}"></x:transform>

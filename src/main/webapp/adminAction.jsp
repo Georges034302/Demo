@@ -100,7 +100,8 @@
                 </div> 
                 <div id="div4" style="display: none;" class="col-xl-6">
                     <jsp:include page="admin4.jsp" flush="true"/>
-                </div>                 
+                </div>   
+               
             </div>
         </div>
         <div id="clock" class="footer"></div>  

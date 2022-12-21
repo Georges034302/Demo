@@ -7,9 +7,7 @@
                 <title>Admin View</title>
                 <link href="css/users.css" rel="stylesheet" type="text/css"></link>
             </head>
-            <body>
-                <br></br>
-                
+            <body>            
                 <xsl:apply-templates/>
             </body>
         </html>

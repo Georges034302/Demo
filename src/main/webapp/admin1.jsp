@@ -14,7 +14,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin View</title>
     </head>
-    <body>       
+    <body>
+        <br/>
+        <div class="label">Admin View 1</div>
         <%            
             request.setAttribute("email", null);
             request.removeAttribute("email");

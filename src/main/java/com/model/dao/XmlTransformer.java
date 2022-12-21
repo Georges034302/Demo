@@ -35,8 +35,8 @@ public class XmlTransformer {
         
         //Step 5: transform
         transformer.transform(xmlSource, result);
-        StreamResult systemOutResult = new StreamResult(System.out);
-        transformer.transform(xmlSource, systemOutResult);        
+        //StreamResult systemOutResult = new StreamResult(System.out);
+        //transformer.transform(xmlSource, systemOutResult);        
     }
     
     public void transform(String xslPath, String xmlPath, StreamResult result) throws TransformerConfigurationException, TransformerException{
@@ -54,7 +54,7 @@ public class XmlTransformer {
         
         //Step 5: transform
         transformer.transform(xmlSource, result);
-        StreamResult systemOutResult = new StreamResult(System.out);
-        transformer.transform(xmlSource, systemOutResult);   
+        //StreamResult systemOutResult = new StreamResult(System.out);
+        //transformer.transform(xmlSource, systemOutResult);   
     }
 }
