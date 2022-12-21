@@ -15,31 +15,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  
         <link rel="stylesheet" href="css/layout.css"/>
         <script type="text/javascript" src="js/index.js"></script>
-        
-        <script>
-            var divs = ["div1", "div2", "div3", "div4", "div5"];
-            var visibleDivId = null;
-            function toggleVisibility(divId) {
-                if (visibleDivId === divId) {
-                    //visibleDivId = null;
-                } else {
-                    visibleDivId = divId;
-                }
-                hideNonVisibleDivs();
-            }
-            function hideNonVisibleDivs() {
-                var i, divId, div;
-                for (i = 0; i < divs.length; i++) {
-                    divId = divs[i];
-                    div = document.getElementById(divId);
-                    if (visibleDivId === divId) {
-                        div.style.display = "block";
-                    } else {
-                        div.style.display = "none";
-                    }
-                }
-            }
-        </script>
         <title>Admin Action Page</title>
     </head>
     <body onload="startTime()">
@@ -54,10 +29,11 @@
 
             Admins admins = adminDAO.getAdmins();
 
-            if(email != null)
+            if (email != null) {
                 admin = admins.admin(email, password);
-            else
+            } else {
                 admin = (Admin) session.getAttribute("admin");
+            }
 
             if (admin == null) {
                 session.setAttribute("error", "Admin does not exist");
@@ -75,33 +51,49 @@
                     <a onclick="toggleVisibility('div2')" style="text-decoration: none; color: orange; font-size: 16px;" href="#2">View-2</a>&emsp;
                     <a onclick="toggleVisibility('div3')" style="text-decoration: none; color: orange; font-size: 16px;" href="#3">View-3</a>&emsp;
                     <a onclick="toggleVisibility('div4')" style="text-decoration: none; color: orange; font-size: 16px;" href="#4">View-4</a>&emsp;
-                    <a onclick="toggleVisibility('div5')" style="text-decoration: none; color: orange; font-size: 16px;" href="#5">View-5</a>
+                    <a onclick="toggleVisibility('div5')" style="text-decoration: none; color: orange; font-size: 16px;" href="#5">View-5</a>&emsp;                    
                 </div> 
-                <div class="navbar-header navbar-left">                                        
-                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="logout.jsp">Logout</a>               
+                <form class="navbar-form" role="search">
+                    <div class="form-group">    
+                        <input class="form-control" id="inputID" onkeyup="search()" type="text" placeholder="Search by ID">
+                    </div>
+                </form>
+                <div class="d-flex">               
+                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="logout.jsp">Logout</a>                
                 </div>
             </div>
         </nav>
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row d-flex flex-row-reverse">
                 <div id="div1" class="col-xl-6">
+                    <br/>
+                    <div class="label">Admin View 1</div>
                     <jsp:include page="admin1.jsp" flush="true"/>
                 </div>    
                 <div id="div2" style="display: none;" class="col-xl-6">
+                    <br/>
+                    <div class="label">Admin View 2</div>
                     <jsp:include page="admin2.jsp" flush="true"/>
                 </div> 
                 <div id="div3" style="display: none;" class="col-xl-6">
+                    <br/>
+                    <div class="label">Admin View 3</div>
                     <jsp:include page="admin3.jsp" flush="true"/>
                 </div> 
                 <div id="div4" style="display: none;" class="col-xl-6">
+                    <br/>
+                    <div class="label">Admin View 4</div>
                     <jsp:include page="admin4.jsp" flush="true"/>
                 </div>   
-                <div id="div5" style="display: none;" class="col-xl-6">
-                    <jsp:include page="admin5.jsp" flush="true"/>
-                </div>
+<!--                <div id="div5" style="display: none;" class="col-xl-6">
+                    <br/>
+                    <div class="label">Admin View 5</div>
+                    
+                </div>-->
             </div>
         </div>
         <div id="clock" class="footer"></div>  
     </body>
+    <script type="text/javascript" src="js/index.js"></script>
 </html>

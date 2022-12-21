@@ -15,8 +15,7 @@
         <title>Admin View</title>
     </head>
     <body>
-        <br/>
-        <div class="label">Admin View 1</div>
+        
         <%            
             request.setAttribute("email", null);
             request.removeAttribute("email");

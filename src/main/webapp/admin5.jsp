@@ -14,8 +14,7 @@
             request.setAttribute("email", null);
             request.removeAttribute("email");
         %>    
-        <br/>
-        <div class="label">Admin View 5</div>
+       
         <% 
             String xslPath = application.getRealPath("/xsl/users.xsl");
             XmlTransformer transformer = new XmlTransformer();

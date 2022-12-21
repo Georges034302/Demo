@@ -11,8 +11,7 @@
     request.removeAttribute("email");
 %>
 <% Users users = userDAO.getUsers(); %>
-<br/>
-<div class="label">Admin View 2</div>
+
 <c:import url="/xsl/users.xsl" var="xslt"/>
 <c:set var="xml">
     <%out.print(userDAO.marshal(users));%>
