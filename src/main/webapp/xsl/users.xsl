@@ -13,7 +13,7 @@
         </html>
     </xsl:template>
     <xsl:template match="users">
-        <table id="resultTable">
+        <table>
             <thead>
                 <th>ID</th>
                 <th>Name</th>

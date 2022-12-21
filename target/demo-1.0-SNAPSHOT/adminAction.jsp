@@ -86,14 +86,29 @@
                     <div class="label">Admin View 4</div>
                     <jsp:include page="admin4.jsp" flush="true"/>
                 </div>   
-<!--                <div id="div5" style="display: none;" class="col-xl-6">
-                    <br/>
-                    <div class="label">Admin View 5</div>
-                    
-                </div>-->
+                <!--                <div id="div5" style="display: none;" class="col-xl-6">
+                                    <br/>
+                                    <div class="label">Admin View 5</div>
+                                    
+                                </div>-->
             </div>
         </div>
         <div id="clock" class="footer"></div>  
     </body>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+
+        var tables = document.getElementsByTagName("table");
+        // Looping over tables
+        for (var i = 0; i < tables.length; i++) {
+
+            // Get the ith table
+            var table = tables[i];
+            // Set the id dynamically
+            table.setAttribute("id", "table"+(i + 1));
+            // The line below will also give id
+            // dynamically to the tables
+            //table.id = i+1;
+        }
+
+    </script>
 </html>
