@@ -15,13 +15,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  
         <link rel="stylesheet" href="css/layout.css"/>
         <script type="text/javascript" src="js/index.js"></script>
-        <style>
-            .target:not(#div1) {
-                display: none;
-            }
-        </style>
+        
         <script>
-            var divs = ["div1", "div2", "div3", "div4"];
+            var divs = ["div1", "div2", "div3", "div4", "div5"];
             var visibleDivId = null;
             function toggleVisibility(divId) {
                 if (visibleDivId === divId) {
@@ -101,7 +97,9 @@
                 <div id="div4" style="display: none;" class="col-xl-6">
                     <jsp:include page="admin4.jsp" flush="true"/>
                 </div>   
-               
+                <div id="div5" style="display: none;" class="col-xl-6">
+                    <jsp:include page="admin5.jsp" flush="true"/>
+                </div>
             </div>
         </div>
         <div id="clock" class="footer"></div>  
