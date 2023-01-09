@@ -22,6 +22,14 @@ public class User implements Serializable{
     public User() {
     }
 
+    public User(int ID, String name, String email, String password, String DOB) {
+        this.ID = ID;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.DOB = DOB;
+    }
+
     public User(String name, String email, String password, String DOB) {
         this.ID = (new Random()).nextInt(999999);
         this.name = name;
@@ -108,7 +116,7 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return  ID + "\t" + name + "\t" + email + "\t" + DOB;
+        return  ID + "\t" + name + "\t" + email + "\t\t" + DOB;
     }    
     
 }
