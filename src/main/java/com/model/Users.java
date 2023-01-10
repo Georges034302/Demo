@@ -14,6 +14,10 @@ public class Users implements Serializable{
     public Users() {
     }
     
+    public void addAll(List<User> temp){
+        this.users.addAll(temp);
+    }
+    
     public void add(User user){
         this.users.add(user);
     }

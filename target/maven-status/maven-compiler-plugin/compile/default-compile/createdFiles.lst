@@ -3,6 +3,7 @@ com\model\dao\BlogSqlDAO.class
 com\model\Number.class
 com\model\dao\UserSqlDAO.class
 com\app\TransformerApp.class
+com\rest\UserSqlService.class
 com\app\LocationApp.class
 com\model\Location.class
 com\utils\In.class
