@@ -4,6 +4,7 @@
     Author     : George
 --%>
 
+<%@page import="com.model.dao.AdminSqlDAO"%>
 <%@page import="com.model.Admin"%>
 <%@page import="com.model.Admins"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,19 +19,16 @@
         <title>Admin Action Page</title>
     </head>
     <body onload="startTime()">
-        <% String filename = application.getRealPath("/WEB-INF/admin.xml");%>
-        <jsp:useBean id="adminDAO" class="com.model.dao.AdminDAO" scope="application">
-            <jsp:setProperty name="adminDAO" property="fileName" value="<%=filename%>"/>
-        </jsp:useBean>
+
         <%
             Admin admin = null;
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
-            Admins admins = adminDAO.getAdmins();
-
+            AdminSqlDAO adminSqlDAO = (AdminSqlDAO) session.getAttribute("adminSqlDAO");            
+            
             if (email != null) {
-                admin = admins.admin(email, password);
+                admin = adminSqlDAO.login(email, password);
             } else {
                 admin = (Admin) session.getAttribute("admin");
             }

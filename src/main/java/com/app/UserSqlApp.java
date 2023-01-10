@@ -74,7 +74,8 @@ public class UserSqlApp {
             System.out.println("Update user record: ");
             String name = read("Name: ");
             String password = read("Password: ");
-            userSqlDAO.update(name, password, ID);
+            String dob = read("Date of Birth: ");
+            userSqlDAO.update(name, password, dob,ID);
         }else{
             System.out.println("User does not exist");
         }

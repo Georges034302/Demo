@@ -4,6 +4,8 @@
     Author     : George
 --%>
 
+<%@page import="com.model.dao.UserSqlDAO"%>
+<%@page import="com.model.dao.AdminSqlDAO"%>
 <%@page import="javax.xml.transform.stream.StreamResult"%>
 <%@page import="com.model.dao.XmlTransformer"%>
 <%@page import="com.model.Users"%>
@@ -14,23 +16,23 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin View</title>
     </head>
-    <body>
-        
+    <body>        
         <%            
             request.setAttribute("email", null);
             request.removeAttribute("email");
         %>
-        <% String filename = application.getRealPath("/WEB-INF/users.xml");%>
+        
         <% String xslPath = application.getRealPath("/xsl/users.xsl");%>
-        <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
-            <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
-        </jsp:useBean>
+        
+        <% 
+             UserSqlDAO userSqlDAO = (UserSqlDAO) session.getAttribute("userSqlDAO"); 
+        %>
 
         <%
-            Users users = userDAO.getUsers();
+            Users users = new Users();
+            users.addAll(userSqlDAO.getUsers());
             XmlTransformer transformer = new XmlTransformer();
             transformer.transform(xslPath, users, new StreamResult(out));
         %>
-
     </body>
 </html>

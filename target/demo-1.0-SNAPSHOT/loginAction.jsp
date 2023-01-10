@@ -4,6 +4,7 @@
     Author     : George
 --%>
 
+<%@page import="com.model.dao.UserSqlDAO"%>
 <%@page import="com.model.User"%>
 <%@page import="com.model.Users"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,17 +17,13 @@
         <title>Login Action</title>
     </head>
     <body onload="startTime()">
-        <% String filename = application.getRealPath("/WEB-INF/users.xml");%>
-        <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
-            <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
-        </jsp:useBean>
+       
         <%
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-
-            Users users = userDAO.getUsers();
-
-            User user = users.user(email, password);
+            UserSqlDAO userSqlDAO = (UserSqlDAO) session.getAttribute("userSqlDAO");
+            
+            User user = userSqlDAO.login(email, password);
 
             if (user != null) {
                 session.setAttribute("user", user);
@@ -34,7 +31,6 @@
                 session.setAttribute("error", "User does not exist");
                 response.sendRedirect("login.jsp");
             }
-
         %>
         <h1>Welcome to Java Community Blog <span><a class="button" href="blog.jsp">Blog</a></span></h1>
         <% if (user != null) {%>

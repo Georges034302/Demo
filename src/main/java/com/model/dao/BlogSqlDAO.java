@@ -19,6 +19,13 @@ public class BlogSqlDAO {
         this.st = connection.createStatement();
     }
     
+    //Create Blog for a User by ID
+    public void createBlog(int ID, String text) throws SQLException{
+        String columns = "INSERT INTO mydb.blogs(ID,TEXT)";
+        String values = "VALUES('"+ID+"','"+text+"')";
+        st.executeUpdate(columns+values);
+    }
+    
     //Read All Blogs for a User
     public List<Blog> getBlogs() throws SQLException{
         String fetch = "SELECT * FROM mydb.blogs";

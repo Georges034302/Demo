@@ -4,6 +4,7 @@
     Author     : George
 --%>
 
+<%@page import="com.model.dao.UserSqlDAO"%>
 <%@page import="com.model.Users"%>
 <%@page import="com.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,17 +20,14 @@
         <%!
             User user;
         %>
-        <% String filename = application.getRealPath("/WEB-INF/users.xml");%>
-        <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
-            <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
-        </jsp:useBean>
+        
         <%
+            UserSqlDAO userSqlDAO = (UserSqlDAO) session.getAttribute("userSqlDAO");
             String submitted = request.getParameter("submitted");
             String emailView = request.getParameter("emailView");
-            Users users = userDAO.getUsers();
 
             if (emailView != null) {
-                user = users.user(emailView);
+                user = userSqlDAO.getUser(emailView);
                 session.setAttribute("emailView", emailView);
             } else {
                 user = (User) session.getAttribute("user");
@@ -43,9 +41,9 @@
                 String dob = request.getParameter("dob");
                 emailView = (String)session.getAttribute("emailView");
                 if(emailView != null)
-                    user = users.user(emailView);
+                    user = userSqlDAO.getUser(emailView);
                 user.update(ID, name, email, password, dob);
-                userDAO.update(users, user);
+                userSqlDAO.update(name, password, dob, ID);
                 session.setAttribute("user", user);
             }
         %>

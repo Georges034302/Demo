@@ -4,6 +4,7 @@
     Author     : George
 --%>
 
+<%@page import="com.model.dao.UserSqlDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.Users"%>
@@ -18,27 +19,23 @@
         <title>Welcome</title>
     </head>
     <body onload="startTime()">
-        <% String filename = application.getRealPath("/WEB-INF/users.xml");%>
-        <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
-            <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
-        </jsp:useBean>
+       
         <%
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String dob = request.getParameter("dob");
 
+            UserSqlDAO userSqlDAO = (UserSqlDAO) session.getAttribute("userSqlDAO");
             User user = new User(name, email, password, dob);
-            Users users = userDAO.getUsers();
+                        
+            User userSql = userSqlDAO.getUser(email);
             
-            User userXML = users.user(user.getEmail());
-            
-            if(userXML != null){
+            if(userSql != null){
                 session.setAttribute("error", "User already exists");
                 response.sendRedirect("register.jsp");
             }else{
-                users.add(user);
-                userDAO.save(users, filename);
+                userSqlDAO.create(name, email, password, dob);
                 session.setAttribute("user", user);
             }              
 

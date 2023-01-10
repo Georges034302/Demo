@@ -7,6 +7,14 @@ CREATE TABLE mydb.users(
     PRIMARY KEY(ID)
 );
 
+CREATE TABLE IF NOT EXISTS mydb.admins(
+    ID INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    NAME VARCHAR(40) NOT NULL,
+    EMAIL VARCHAR(100) NOT NULL UNIQUE,
+    PASSWORD VARCHAR(100) NOT NULL UNIQUE,
+    DOB date
+)AUTO_INCREMENT=100;
+
 CREATE TABLE mydb.BLOGS (
     BlogID INTEGER NOT NULL NOT NULL AUTO_INCREMENT,
     ID INTEGER NOT NULL,
@@ -30,3 +38,8 @@ VALUES
     ('Jessica Jones','jess.jones@example.com','hijess123','2003-07-12'),
     ('Carol Knox','carol.k@gmail.com','knox123','1995-10-11'),
     ('Andreas Brehme','andy.b@uts.com','ger123','1988-12-05');
+
+INSERT INTO mydb.admins(NAME,EMAIL,PASSWORD,DOB)
+VALUES 
+    ('John Smith','john.smith@example.com','Helloworld123','2000-12-05'),
+    ('Luthor Mathius','luther.m@example.com','Helloworld111','2002-07-11');

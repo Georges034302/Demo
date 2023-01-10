@@ -48,6 +48,10 @@ public class UserServiceClient {
         return xmlPath("http://localhost:8080/demo/rest/userapi/users","usersgen.xml");
     }
     
+    public static String getUsers() throws IOException{
+        return xmlPath("http://localhost:8080/demo/rest/sqlapi/users","usersgen.xml");
+    }
+    
     public static String fetchUser(int ID) throws IOException{
         return xmlPath("http://localhost:8080/demo/rest/userapi/user/ID/"+ID,"usergen.xml");
     }

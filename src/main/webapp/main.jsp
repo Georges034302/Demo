@@ -4,6 +4,8 @@
     Author     : George
 --%>
 
+<%@page import="com.model.dao.BlogSqlDAO"%>
+<%@page import="com.model.dao.UserSqlDAO"%>
 <%@page import="com.model.Users"%>
 <%@page import="java.util.List"%>
 <%@page import="com.model.Blog"%>
@@ -20,22 +22,16 @@
         <title>Blogs</title>
     </head>
     <body onload="startTime()" >
-        <% String filename = application.getRealPath("/WEB-INF/users.xml"); %>
-        <jsp:useBean id="userDAO" class="com.model.dao.UserDAO" scope="application">
-            <jsp:setProperty name="userDAO" property="fileName" value="<%=filename%>"/>
-        </jsp:useBean>
+        
         <% 
+            BlogSqlDAO blogSqlDAO = (BlogSqlDAO) session.getAttribute("blogSqlDAO");
+            
             User user = (User) session.getAttribute("user");            
             String text = request.getParameter("blog");
-            if(text != null){
-                user.add(text);         
-            }
-            List<Blog> blogs = user.getBlogs();
-            
-            Users users = userDAO.getUsers();
-           
-            userDAO.update(users, user);
-            
+
+            if(text != null) 
+                blogSqlDAO.createBlog(user.getID(), text);
+
             session.setAttribute("user", user);
         %>
         <nav class="navbar navbar-dark bg-dark">
@@ -55,7 +51,7 @@
                 <div class="col-lg-2">
                     <table class="table table-bordered table-striped w-auto">
                         <thead class="table-dark"><tr><th colspan="2">My Blogs</th></tr></thead>
-                        <% for(Blog blog:blogs){ %>
+                        <% for(Blog blog:blogSqlDAO.getBlogs(user.getID())){ %>
                             <tr><td><%= blog.getNumber() %></td><td><%= blog.getText() %></td></tr>   
                         <% } %>
                     </table>

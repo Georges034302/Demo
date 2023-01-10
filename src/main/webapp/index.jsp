@@ -4,6 +4,10 @@
     Author     : George
 --%>
 
+<%@page import="com.model.dao.AdminSqlDAO"%>
+<%@page import="com.model.dao.BlogSqlDAO"%>
+<%@page import="com.model.dao.SqlDBConnector"%>
+<%@page import="com.model.dao.UserSqlDAO"%>
 <%@page import="java.util.Random"%>
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,5 +38,13 @@
             <a class="button" href="sessioninfo.jsp">Session Info</a>
         </div>
         <div id="clock" class="footer"></div>
+        <% 
+            UserSqlDAO userSqlDAO = new UserSqlDAO(new SqlDBConnector().connection());
+            AdminSqlDAO adminSqlDAO = new AdminSqlDAO(new SqlDBConnector().connection());
+            BlogSqlDAO blogSqlDAO = new BlogSqlDAO(new SqlDBConnector().connection());
+            session.setAttribute("adminSqlDAO", adminSqlDAO);
+            session.setAttribute("userSqlDAO", userSqlDAO);
+            session.setAttribute("blogSqlDAO", blogSqlDAO);
+        %>
     </body>
 </html>

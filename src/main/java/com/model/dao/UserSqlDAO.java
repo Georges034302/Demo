@@ -17,7 +17,7 @@ public class UserSqlDAO {
 
     private Statement st;
     private PreparedStatement updateSt;
-    private String updateQuery = "UPDATE mydb.users SET NAME=?, PASSWORD=? WHERE ID=?";
+    private String updateQuery = "UPDATE mydb.users SET NAME=?, PASSWORD=?, DOB=? WHERE ID=?";
     private PreparedStatement deleteSt;
     private String deleteQuery = "DELETE FROM mydb.users WHERE ID=?";
 
@@ -51,6 +51,43 @@ public class UserSqlDAO {
         }
         return null;
     }
+    
+        //Read Query - Read One
+    public User getUser(String email) throws SQLException {
+        String query = "SELECT * FROM mydb.users WHERE EMAIL='"+ email+"'";
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+            String currentEmail = rs.getString(3);
+
+            if (email.equals(currentEmail)) {
+                int ID = Integer.parseInt(rs.getString(1));
+                String name = rs.getString(2);
+                
+                String password = rs.getString(4);
+                String dob = rs.getString(5);
+                return new User(ID, name, email, password, dob);
+            }
+        }
+        return null;
+    }
+    
+     //Read Query - Read One by Email and Password
+    public User login(String email, String password) throws SQLException {
+        String query = "SELECT * FROM mydb.users WHERE EMAIL='"+ email+"' AND PASSWORD='"+password+"'";
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+            String currentEmail = rs.getString(3);
+            String currentPassword = rs.getString(4);
+
+            if (email.equals(currentEmail)&&password.equals(currentPassword)) {
+                int ID = Integer.parseInt(rs.getString(1));
+                String name = rs.getString(2);               
+                String dob = rs.getString(5);
+                return new User(ID, name, email, password, dob);
+            }
+        }
+        return null;
+    }
 
     //Read Query - Read All
     public List<User> getUsers() throws SQLException {
@@ -70,10 +107,11 @@ public class UserSqlDAO {
     }
     
     //Update Query (Name, Password) by ID
-    public void update(String name, String password, int ID) throws SQLException{
+    public void update(String name, String password, String dob, int ID) throws SQLException{
         updateSt.setString(1, name);
         updateSt.setString(2, password);
-        updateSt.setString(3, Integer.toString(ID));
+        updateSt.setString(3, dob);
+        updateSt.setString(4, Integer.toString(ID));
         int row = updateSt.executeUpdate();
         System.out.println("Row "+row+" has been successflly updated");
     }
