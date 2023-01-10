@@ -6,6 +6,7 @@ import com.model.dao.BlogSqlDAO;
 import com.model.dao.SqlDBConnector;
 import com.model.dao.UserSqlDAO;
 import com.utils.In;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -27,12 +28,12 @@ public class UserSqlApp {
     private UserSqlDAO userSqlDAO;
     private BlogSqlDAO blogSqlDAO;
     
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, IOException {
         UserSqlApp app = new UserSqlApp();
         app.menu();
     }
     
-    public UserSqlApp() throws ClassNotFoundException, SQLException{
+    public UserSqlApp() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException, IOException{
         connector = new SqlDBConnector();
         connection = connector.connection();
         userSqlDAO = new UserSqlDAO(connection);
