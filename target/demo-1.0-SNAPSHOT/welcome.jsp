@@ -27,7 +27,7 @@
             String dob = request.getParameter("dob");
 
             UserSqlDAO userSqlDAO = (UserSqlDAO) session.getAttribute("userSqlDAO");
-            User user = new User(name, email, password, dob);
+            
                         
             User userSql = userSqlDAO.getUser(email);
             
@@ -36,6 +36,7 @@
                 response.sendRedirect("register.jsp");
             }else{
                 userSqlDAO.create(name, email, password, dob);
+                User user = userSqlDAO.getUser(email);
                 session.setAttribute("user", user);
             }              
 
