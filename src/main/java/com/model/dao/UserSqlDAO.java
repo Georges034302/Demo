@@ -1,5 +1,6 @@
 package com.model.dao;
 
+import com.model.Blog;
 import com.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,13 +19,18 @@ public class UserSqlDAO {
     private Statement st;
     private PreparedStatement updateSt;
     private String updateQuery = "UPDATE mydb.users SET NAME=?, PASSWORD=?, DOB=? WHERE ID=?";
-    private PreparedStatement deleteSt;
-    private String deleteQuery = "DELETE FROM mydb.users WHERE ID=?";
-
+    private PreparedStatement deleteUserSt;
+    private String deleteUserQuery = "DELETE FROM mydb.users WHERE ID=?";
+    private PreparedStatement deleteBlogSt;
+    private String deleteBlogQuery = "DELETE FROM mydb.blogs WHERE ID=?";
+    private BlogSqlDAO blogSqlDAO;
+    
     public UserSqlDAO(Connection connection) throws SQLException {
+        this.blogSqlDAO = new BlogSqlDAO(connection);
         this.st = connection.createStatement();
         this.updateSt = connection.prepareStatement(updateQuery);
-        this.deleteSt = connection.prepareStatement(deleteQuery);
+        this.deleteUserSt = connection.prepareStatement(deleteUserQuery);
+        this.deleteBlogSt = connection.prepareStatement(deleteBlogQuery);
     }
 
     //Create Query
@@ -101,7 +107,10 @@ public class UserSqlDAO {
             String email = rs.getString(3);
             String password = rs.getString(4);
             String dob = rs.getString(5);
-           temp.add(new User(ID, name, email, password, dob));
+            List<Blog> blogs = blogSqlDAO.getBlogs(ID);
+            User user = new User(ID, name, email, password, dob);
+            user.addAll(blogs);
+           temp.add(user);
         }    
         return temp;
     }
@@ -118,8 +127,11 @@ public class UserSqlDAO {
    
     //Delete Query - by ID
     public void delete(int ID) throws SQLException{
-        deleteSt.setString(1, ""+ID);
-        int row = deleteSt.executeUpdate();
-        System.out.println("Row "+row+" has been successflly deleted");
+        deleteBlogSt.setString(1, ""+ID);
+        int y = deleteBlogSt.executeUpdate();
+        deleteUserSt.setString(1, ""+ID);
+        int x = deleteUserSt.executeUpdate();
+        
+        System.out.println("User has been successflly deleted");
     }
 }

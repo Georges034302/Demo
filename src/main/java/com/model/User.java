@@ -46,6 +46,10 @@ public class User implements Serializable{
         this.DOB = DOB;
     }
 
+    public void addAll(List<Blog> temp){
+        blogs.addAll(temp);
+    }
+    
     public boolean login(String email, String password){
         return this.email.equals(email)&&this.password.equals(password);
     }    
