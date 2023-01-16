@@ -21,7 +21,7 @@
             String exist = (String) session.getAttribute("error");
         %>
         <div style="margin: auto;">
-            <form method="POST" action="welcome.jsp">
+            <form method="POST" action="/demo/RegisterServlet">
                 <table class="table">
                     <caption>Sign Up <span class="message"><%= (exist != null) ? exist : ""%></span></caption>
                     <tr><td>Name: </td><td><input type="text" name="name" placeholder="Enater your name" /></td></tr>

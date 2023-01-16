@@ -18,7 +18,7 @@
         <% 
             User user = (User) session.getAttribute("user");
         %>
-        <form action="main.jsp" method="POST">
+        <form action="/demo/BlogServlet" method="POST">
             <table class="table">
                 <caption>New Blog </caption>
                 <tr><td>User:</td><td> <%= user.getID() %> </td></tr>

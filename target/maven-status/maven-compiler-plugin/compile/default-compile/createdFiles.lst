@@ -1,9 +1,14 @@
 com\model\Admins.class
 com\model\Number.class
+com\controller\LoginServlet.class
 com\model\dao\UserSqlDAO.class
+com\controller\MainServlet.class
+com\controller\AdminServlet.class
+com\controller\DeleteServlet.class
 com\app\LocationApp.class
 com\rest\client\LocationServiceClient.class
 com\app\JAXBapp.class
+com\controller\InitServlet.class
 com\rest\MathService.class
 com\model\Blog.class
 com\rest\client\UserServiceClient.class
@@ -13,7 +18,10 @@ com\model\dao\AdminSqlDAO.class
 com\rest\UserService.class
 com\model\dao\BlogSqlDAO.class
 com\app\TransformerApp.class
+com\controller\HelloServlet.class
 com\rest\UserSqlService.class
+com\controller\RegisterServlet.class
+com\controller\BlogServlet.class
 com\model\Location.class
 com\utils\In.class
 com\model\Admin.class
@@ -21,5 +29,7 @@ com\model\dao\UserDAO.class
 com\model\dao\SqlDB.class
 com\model\User.class
 com\model\dao\SqlDBConnector.class
+com\controller\LogoutServlet.class
+com\controller\AccountServlet.class
 com\app\UserSqlApp.class
 com\model\dao\XmlTransformer.class

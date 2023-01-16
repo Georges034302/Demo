@@ -27,7 +27,6 @@
                 Integer count = new Integer(0);
                 session.setAttribute("counter", count);
             }
-
         %>
         <h1 style="text-align: center">Java Community Blog</h1>
         <div class="center" >
@@ -38,13 +37,6 @@
             <a class="button" href="sessioninfo.jsp">Session Info</a>
         </div>
         <div id="clock" class="footer"></div>
-        <% 
-            UserSqlDAO userSqlDAO = new UserSqlDAO(new SqlDBConnector().connection());
-            AdminSqlDAO adminSqlDAO = new AdminSqlDAO(new SqlDBConnector().connection());
-            BlogSqlDAO blogSqlDAO = new BlogSqlDAO(new SqlDBConnector().connection());
-            session.setAttribute("adminSqlDAO", adminSqlDAO);
-            session.setAttribute("userSqlDAO", userSqlDAO);
-            session.setAttribute("blogSqlDAO", blogSqlDAO);
-        %>
+        <jsp:include page="/InitServlet" flush="true"/>
     </body>
 </html>

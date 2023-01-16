@@ -33,6 +33,6 @@
             users.addAll(userSqlDAO.getUsers());
             XmlTransformer transformer = new XmlTransformer();
             transformer.transform(xslPath, users, new StreamResult(out));
-        %>
+        %>        
     </body>
 </html>

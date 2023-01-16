@@ -24,25 +24,18 @@
     <body onload="startTime()" >
         
         <% 
-            BlogSqlDAO blogSqlDAO = (BlogSqlDAO) session.getAttribute("blogSqlDAO");
-            
+            BlogSqlDAO blogSqlDAO = (BlogSqlDAO) session.getAttribute("blogSqlDAO");            
             User user = (User) session.getAttribute("user");            
-            String text = request.getParameter("blog");
-
-            if(text != null) 
-                blogSqlDAO.createBlog(user.getID(), text);
-
-            session.setAttribute("user", user);
         %>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class="navbar-header navbar-left">
                     <a class="navbar-brand" href="#">Welcome <%= user.getName() %> </a>                    
                     <a style="text-decoration: none; color: orange; font-size: 16px;" href="blog.jsp">Blog</a>   
-                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="account.jsp">Account</a>
+                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="/demo/MainServlet">Account</a>
                 </div> 
                 <div class="navbar-header navbar-left">                                        
-                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="logout.jsp">Logout</a>               
+                    <a style="text-decoration: none; color: orange; font-size: 16px;" href="/demo/LogoutServlet">Logout</a>               
                 </div>
             </div>
         </nav>
