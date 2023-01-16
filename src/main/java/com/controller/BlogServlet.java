@@ -32,14 +32,14 @@ public class BlogServlet extends HttpServlet {
         BlogSqlDAO blogSqlDAO = (BlogSqlDAO) session.getAttribute("blogSqlDAO");
         User user = (User) session.getAttribute("user");
         String text = request.getParameter("blog");
-        if (text != null) {
+        if (text != null && !text.isEmpty()) {
             try {
                 blogSqlDAO.createBlog(user.getID(), text);
+                session.setAttribute("user", user);
             } catch (SQLException ex) {
                 Logger.getLogger(BlogServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        session.setAttribute("user", user);
+        }        
         request.getRequestDispatcher("main.jsp").include(request, response);
     }    
 }
