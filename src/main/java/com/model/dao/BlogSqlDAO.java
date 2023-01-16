@@ -20,8 +20,8 @@ public class BlogSqlDAO {
     }
     
     //Create Blog for a User by ID
-    public void createBlog(int ID, String text) throws SQLException{
-        String columns = "INSERT INTO mydb.blogs(ID,TEXT)";
+    public void create(int ID, String text, String table) throws SQLException{
+        String columns = "INSERT INTO "+table+"(ID,TEXT)";
         String values = "VALUES('"+ID+"','"+text+"')";
         st.executeUpdate(columns+values);
     }
@@ -57,4 +57,12 @@ public class BlogSqlDAO {
         }
         return temp;
     } 
+       
+    //archive blog
+    public void archive(int ID) throws SQLException{
+        List<Blog> blogs = getBlogs(ID);
+        
+        for(Blog blog:blogs)
+            create(ID, blog.getText(), "mydb.blogshistory");
+    }
 }

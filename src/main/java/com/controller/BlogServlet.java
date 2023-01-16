@@ -34,7 +34,7 @@ public class BlogServlet extends HttpServlet {
         String text = request.getParameter("blog");
         if (text != null && !text.isEmpty()) {
             try {
-                blogSqlDAO.createBlog(user.getID(), text);
+                blogSqlDAO.create(user.getID(), text,"mydb.blogs");
                 session.setAttribute("user", user);
             } catch (SQLException ex) {
                 Logger.getLogger(BlogServlet.class.getName()).log(Level.SEVERE, null, ex);

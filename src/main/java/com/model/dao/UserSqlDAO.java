@@ -20,7 +20,7 @@ public class UserSqlDAO {
     private PreparedStatement updateSt;
     private String updateQuery = "UPDATE mydb.users SET NAME=?, PASSWORD=?, DOB=? WHERE ID=?";
     private PreparedStatement deleteUserSt;
-    private String deleteUserQuery = "DELETE FROM mydb.users WHERE ID=?";
+    private String deleteUserQuery = "DELETE FROM mydb.users WHERE ID=?";  
     private PreparedStatement deleteBlogSt;
     private String deleteBlogQuery = "DELETE FROM mydb.blogs WHERE ID=?";
     private BlogSqlDAO blogSqlDAO;
@@ -29,7 +29,7 @@ public class UserSqlDAO {
         this.blogSqlDAO = new BlogSqlDAO(connection);
         this.st = connection.createStatement();
         this.updateSt = connection.prepareStatement(updateQuery);
-        this.deleteUserSt = connection.prepareStatement(deleteUserQuery);
+        this.deleteUserSt = connection.prepareStatement(deleteUserQuery);  
         this.deleteBlogSt = connection.prepareStatement(deleteBlogQuery);
     }
 
@@ -127,6 +127,7 @@ public class UserSqlDAO {
    
     //Delete Query - by ID
     public void delete(int ID) throws SQLException{
+        blogSqlDAO.archive(ID);
         deleteBlogSt.setString(1, ""+ID);
         int y = deleteBlogSt.executeUpdate();
         deleteUserSt.setString(1, ""+ID);
